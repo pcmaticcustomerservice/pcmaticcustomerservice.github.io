@@ -1,242 +1,239 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Support Banner</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23facc15'/><text x='45%' y='75%' font-size='90' text-anchor='middle' fill='black' font-weight='bold'>N</text></svg>">
+<meta name="description" content="PC Matic customer assistance and product information portal.">
+<meta name="robots" content="index,follow">
 
-
+<title>PC Matic Customer Service</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#050816;
-overflow:hidden;
-position:relative;
+    background:#0b1220;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* Spotlight Background */
-body::before{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle, rgba(0,140,255,0.35), transparent 70%);
-top:-200px;
-left:-150px;
-filter:blur(40px);
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+    position:relative;
 }
 
-body::after{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle, rgba(0,255,170,0.20), transparent 70%);
-bottom:-250px;
-right:-150px;
-filter:blur(50px);
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,rgba(0,119,255,.25),transparent 70%);
+    top:-200px;
+    left:-200px;
+    filter:blur(40px);
 }
 
-.banner{
-position:relative;
-width:90%;
-max-width:950px;
-background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.10);
-backdrop-filter:blur(20px);
-border-radius:30px;
-padding:60px 40px;
-text-align:center;
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
-z-index:2;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(0,255,170,.15),transparent 70%);
+    bottom:-150px;
+    right:-150px;
+    filter:blur(50px);
+}
+
+.container{
+    max-width:1200px;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:60px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
 }
 
 .badge{
-display:inline-block;
-padding:10px 18px;
-border-radius:50px;
-background:rgba(255,255,255,0.10);
-color:#dbeafe;
-font-size:14px;
-margin-bottom:20px;
-letter-spacing:1px;
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    color:#cbd5e1;
+    margin-bottom:25px;
+    font-size:14px;
+    letter-spacing:1px;
 }
 
 h1{
-font-size:60px;
-line-height:1.1;
-font-weight:800;
-color:#ffffff;
-margin-bottom:20px;
+    font-size:64px;
+    line-height:1.1;
+    margin-bottom:20px;
 }
 
-h1 span{
-color:#4da3ff;
+.highlight{
+    color:#3b82f6;
 }
 
-p{
-font-size:20px;
-color:#d1d5db;
-line-height:1.7;
-max-width:700px;
-margin:auto;
-margin-bottom:35px;
-}
-
-.phone-number{
-font-size:42px;
-font-weight:800;
-color:#ffffff;
-margin-bottom:30px;
-}
-
-.buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-text-decoration:none;
-padding:18px 34px;
-font-size:20px;
-font-weight:700;
-border-radius:16px;
-transition:0.3s;
-}
-
-.call-btn{
-background:#2563eb;
-color:#fff;
-box-shadow:0 0 25px rgba(37,99,235,0.4);
-}
-
-.call-btn:hover{
-background:#1d4ed8;
-transform:translateY(-2px);
+.subtitle{
+    max-width:800px;
+    margin:0 auto 35px;
+    color:#d1d5db;
+    font-size:20px;
+    line-height:1.8;
 }
 
 .chat-btn{
-background:#16a34a;
-color:#fff;
-box-shadow:0 0 25px rgba(22,163,74,0.4);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:18px 40px;
+    border-radius:16px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:20px;
+    transition:.3s;
 }
 
 .chat-btn:hover{
-background:#15803d;
-transform:translateY(-2px);
+    transform:translateY(-2px);
 }
 
-@media(max-width:768px){
-
-.banner{
-padding:40px 25px;
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:50px;
 }
 
-h1{
-font-size:38px;
+.feature{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:25px;
 }
 
-p{
-font-size:17px;
+.feature h3{
+    margin-bottom:12px;
 }
 
-.phone-number{
-font-size:30px;
+.feature p{
+    color:#cbd5e1;
+    line-height:1.7;
 }
 
-.buttons{
-flex-direction:column;
+footer{
+    text-align:center;
+    padding:30px 20px;
+    color:#94a3b8;
 }
 
-.btn{
-width:100%;
-}
+@media(max-width:900px){
+    h1{
+        font-size:42px;
+    }
 
-.chat-btn{
-display:none;
-}
+    .card{
+        padding:40px 25px;
+    }
 
+    .subtitle{
+        font-size:17px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .chat-btn{
+        width:100%;
+    }
 }
 </style>
 </head>
 <body>
 
-<div class="banner">
+<section class="hero">
+    <div class="container">
+        <div class="card">
 
-<div class="badge">
-24/7 CUSTOMER SUPPORT
-</div>
+            <div class="badge">
+                CUSTOMER ASSISTANCE PORTAL
+            </div>
 
-<h1>
-Need <span>Support?</span>
-</h1>
+            <h1>
+                PC Matic <span class="highlight">Customer Service</span>
+            </h1>
 
-<p>
-Get instant help with login, setup, activation, customer support, installation, updates, account recovery, and troubleshooting assistance.
-</p>
+            <p class="subtitle">
+                Get assistance with account access, software activation,
+                installation guidance, subscription management, updates,
+                troubleshooting, and general product information.
+            </p>
 
-<div class="phone-number">
-+1 (877) 832-6096
-</div>
+            <a href="#" class="chat-btn" onclick="if(window.arslive){arslive('openChat')}return false;">
+                Start Live Chat
+            </a>
 
-<div class="buttons">
+            <div class="features">
 
-<a href="tel:+18778326096" class="btn call-btn">
-📞 Call Customer Support
-</a>
+                <div class="feature">
+                    <h3>Installation Help</h3>
+                    <p>Guidance for setting up and configuring your software.</p>
+                </div>
 
-<a href="#" class="btn chat-btn" onclick="if(window.arslive){arslive('openChat')} return false;">
-💬 Chat With Support
-</a>
+                <div class="feature">
+                    <h3>Account Assistance</h3>
+                    <p>Support for account access, subscriptions, and updates.</p>
+                </div>
 
-</div>
+                <div class="feature">
+                    <h3>Technical Guidance</h3>
+                    <p>Help with troubleshooting and software-related questions.</p>
+                </div>
 
-</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    Independent customer assistance website.
+</footer>
+
+<script src="https://chat.arslive.com/widget.js"></script>
 
 <script>
-const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent);
-
-function loadChatScript(){
-  const s = document.createElement('script');
-  s.src = "https://chat.arslive.com/widget.js";
-  document.body.appendChild(s);
-}
-
-if(isMobile){
-  // Mobile: hide chat completely + auto dial
-  const chatBtn = document.querySelector('.chat-btn');
-  if(chatBtn) chatBtn.style.display = 'none';
-
-  setTimeout(function(){
-    window.location.href = 'tel:+18778326096';
-  }, 1200);
-
-}else{
-  // Desktop only: load chat
-  loadChatScript();
-
-  setTimeout(function(){
-    if(window.arslive){
-      arslive('openChat');
-    }
-  }, 1500);
-}
+window.addEventListener('load', function(){
+    setTimeout(function(){
+        if(window.arslive){
+            arslive('openChat');
+        }
+    }, 1200);
+});
 </script>
 
 </body>
 </html>
+```
